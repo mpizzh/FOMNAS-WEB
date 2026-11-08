@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum MPK Nasional - Website Resmi FOMNAS</title>
+  <meta name="description" content="Website Resmi Forum Majelis Permusyawaratan Kelas Nasional (FOMNAS). Wadah aspirasi, kolaborasi, dan kepemimpinan MPK se-Indonesia.">
+
+  <!-- Favicon / Brand Icon -->
+  <link rel="icon" type="image/png" href="assets/images/fomnas_logo.png">
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Ethereal Ambient Glow Background -->
+  <div class="ambient-bg"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="brand-logo" aria-label="Beranda Forum MPK Nasional">
+        <img src="assets/images/fomnas_logo.png" alt="Forum MPK Nasional" class="logo-img">
+        <span class="brand-text">Forum <strong>MPK Nasional</strong></span>
+      </a>
+
+      <!-- Floating Capsule Nav Pill (from Video) -->
+      <nav class="nav-pill-wrapper" aria-label="Navigasi Utama">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link active">Beranda</a>
+          <a href="pages/tentang.html" class="nav-link">Tentang</a>
+          <a href="pages/komisi.html" class="nav-link">MPK</a>
+          <a href="pages/news.html" class="nav-link">News</a>
+          <a href="pages/proker.html" class="nav-link">Proker</a>
+          <a href="pages/kontak.html" class="nav-link">Kontak</a>
+        </div>
+      </nav>
+
+      <!-- Mobile Nav Toggle -->
+      <button class="mobile-nav-toggle" aria-label="Buka Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu-overlay"></div>
+  <aside class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="assets/images/fomnas_logo.png" alt="FOMNAS" style="height: 38px;">
+        <span style="font-weight: 800; font-size: 1.15rem; color: #0A1128;">FOMNAS</span>
+      </div>
+      <button class="mobile-menu-close" aria-label="Tutup Menu" style="font-size: 1.5rem; color: #0A1128;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <a href="index.html" class="nav-link active">Beranda</a>
+    <a href="pages/tentang.html" class="nav-link">Tentang</a>
+    <a href="pages/komisi.html" class="nav-link">MPK</a>
+    <a href="pages/news.html" class="nav-link">News</a>
+    <a href="pages/proker.html" class="nav-link">Proker</a>
+    <a href="pages/kontak.html" class="nav-link">Kontak</a>
+  </aside>
+
+  <!-- Hero Section (Exact Match to Video Frame 1-5) -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">
+        Website <span class="bold-text">Resmi</span> Forum<br>
+        <span class="bold-text">Majelis Permusyawaratan Kelas</span><br>
+        <span class="bold-text">Nasional.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Halo! kami hadir sebagai wadah untuk membantu rekan-rekan seputar <strong>Majelis Permusyawaratan Kelas</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- Section: "MPK Minggu ini." (3D Coverflow Carousel from Video Frame 6-10) -->
+  <section class="carousel-section" id="mpk-minggu-ini">
+    <div class="container-wide">
+      <h2 class="section-title">MPK Minggu ini.</h2>
+
+      <div class="carousel-viewport">
+        <div class="carousel-stage">
+          <!-- Slide 1 (Active by Default) -->
+          <div class="coverflow-card card-active">
+            <div class="card-media">
+              <img src="assets/images/mpk_minggu_ini_1.png" alt="Program MPK di Sekolah XX di perhatikan oleh Bawaslu">
+            </div>
+            <div class="card-content-area">
+              <h3>Program MPK di Sekolah XX di perhatikan oleh Bawaslu</h3>
+              <p>—Nusantara, MPK XX berhasil menyelenggarakan simulasi pemilu sekolah demokratis yang ditinjau dan diapresiasi langsung oleh jajaran Bawaslu setempat.</p>
+              <div class="card-footer-action">
+                <a href="pages/news.html" class="btn-read-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="coverflow-card card-next">
+            <div class="card-media">
+              <img src="assets/images/thumbnails/thumb_1.png" alt="Pelatihan Legislator Muda MPK Nasional 2026">
+            </div>
+            <div class="card-content-area">
+              <h3>Pelatihan Legislator Muda MPK Nasional 2026</h3>
+              <p>—Jakarta, pengurus perwakilan MPK dari berbagai provinsi memperdalam wawasan hukum tata negara, mediasi siswa, dan teknik perumusan aspirasi.</p>
+              <div class="card-footer-action">
+                <a href="pages/news.html" class="btn-read-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="coverflow-card card-prev">
+            <div class="card-media">
+              <img src="assets/images/thumbnails/thumb_3.png" alt="Advokasi Suara Siswa Nusantara">
+            </div>
+            <div class="card-content-area">
+              <h3>Advokasi Suara Siswa Nasional untuk Pendidikan Adil</h3>
+              <p>—Surakarta, FOMNAS menggelar forum dengar pendapat antarpelajar guna merangkum rekomendasi sarana pembelajaran inklusif di era digital.</p>
+              <div class="card-footer-action">
+                <a href="pages/news.html" class="btn-read-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="coverflow-card card-hidden">
+            <div class="card-media">
+              <img src="assets/images/thumbnails/thumb_4.png" alt="Simulasi Sidang Parlemen Remaja">
+            </div>
+            <div class="card-content-area">
+              <h3>Simulasi Sidang Parlemen Remaja Tingkat Nasional</h3>
+              <p>—Bandung, delegasi MPK mengasah kecakapan diplomasi dan perdebatan substansial dalam sidang permusyawaratan pelajar berbobot tinggi.</p>
+              <div class="card-footer-action">
+                <a href="pages/news.html" class="btn-read-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="coverflow-card card-hidden">
+            <div class="card-media">
+              <img src="assets/images/thumbnails/thumb_5.png" alt="Peluncuran Sensus MPK Nasional">
+            </div>
+            <div class="card-content-area">
+              <h3>Peluncuran Sensus MPK se-Indonesia Tahun 2026</h3>
+              <p>—Surabaya, langkah konkret pendataan terpadu struktur MPK di seluruh sekolah menengah guna pemetaan kebutuhan dan kapasitas legislasi siswa.</p>
+              <div class="card-footer-action">
+                <a href="pages/news.html" class="btn-read-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls: Buttons & Dots -->
+        <div class="carousel-nav-controls">
+          <button class="btn-carousel-ctrl btn-carousel-prev" aria-label="Slide Sebelumnya">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carousel-dots"></div>
+          <button class="btn-carousel-ctrl btn-carousel-next" aria-label="Slide Selanjutnya">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: "Program FOMNAS" (From Video Frame 11-15) -->
+  <section class="program-fomnas-section" id="program-fomnas">
+    <div class="container">
+      <h2 class="section-title">Program FOMNAS</h2>
+
+      <!-- Featured Program Card (Kongres MPK I) -->
+      <div class="featured-program-card">
+        <div class="program-card-text">
+          <h3>Kongres MPK I</h3>
+          <div class="subtitle">—Nusantara, MPK XX berhasil</div>
+
+          <!-- Decorative Lines matching the Figma layout in video -->
+          <div class="program-desc-lines" aria-hidden="true">
+            <div class="desc-line"></div>
+            <div class="desc-line"></div>
+            <div class="desc-line"></div>
+            <div class="desc-line"></div>
+            <div class="desc-line"></div>
+            <div class="desc-line"></div>
+          </div>
+
+          <p class="program-desc-p">
+            Kongres Nasional Majelis Permusyawaratan Kelas pertama yang mempertemukan perwakilan siswa dari 38 provinsi di Indonesia. Menyatukan komitmen bersama untuk memperkuat peran legislatif siswa, menegakkan etika keorganisasian, serta merumuskan rekomendasi kebijakan pendidikan nasional yang aspiratif.
+          </p>
+
+          <div class="card-footer-action">
+            <a href="pages/proker.html" class="btn-read-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="program-card-image">
+          <img src="assets/images/kongres_fomnas.png" alt="Dokumentasi Kongres MPK I - Forum MPK Nasional">
+        </div>
+      </div>
+
+      <!-- Additional Program Highlights Grid -->
+      <div class="program-cards-grid">
+        <div class="ui-card">
+          <div class="ui-card-thumb">
+            <img src="assets/images/thumbnails/thumb_2.png" alt="Sekolah Legislator Pelajar">
+            <span class="ui-badge status-ongoing">Sedang Berjalan</span>
+          </div>
+          <div class="ui-card-body">
+            <div class="ui-card-meta">
+              <span><i class="far fa-calendar"></i> Berkelanjutan</span>
+              <span><i class="fas fa-users"></i> 1.200+ Peserta</span>
+            </div>
+            <h4 class="ui-card-title">Sekolah Legislator Pelajar Indonesia</h4>
+            <p class="ui-card-excerpt">Modul pelatihan daring dan luring bersertifikat untuk meningkatkan pemahaman siswa mengenai pembuatan AD/ART dan pengawasan program OSIS.</p>
+            <div class="ui-card-footer">
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-blue);">Komisi Kaderisasi</span>
+              <a href="pages/proker.html" class="btn-read-link">Detail <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-card">
+          <div class="ui-card-thumb">
+            <img src="assets/images/thumbnails/thumb_3.png" alt="Rembuk Aspirasi Pelajar">
+            <span class="ui-badge status-upcoming">Akan Datang</span>
+          </div>
+          <div class="ui-card-body">
+            <div class="ui-card-meta">
+              <span><i class="far fa-calendar"></i> Desember 2026</span>
+              <span><i class="fas fa-map-marker-alt"></i> Daring Nasional</span>
+            </div>
+            <h4 class="ui-card-title">Rembuk Nasional Aspirasi Pelajar</h4>
+            <p class="ui-card-excerpt">Forum akbar penyerapan aspirasi siswa se-Nusantara mengenai tantangan kesejahteraan mental dan fasilitas sekolah di penjuru negeri.</p>
+            <div class="ui-card-footer">
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-blue);">Komisi Advokasi</span>
+              <a href="pages/proker.html" class="btn-read-link">Detail <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-card">
+          <div class="ui-card-thumb">
+            <img src="assets/images/thumbnails/thumb_5.png" alt="Digitalisasi Parlemen Siswa">
+            <span class="ui-badge status-completed">Terlaksana</span>
+          </div>
+          <div class="ui-card-body">
+            <div class="ui-card-meta">
+              <span><i class="far fa-calendar"></i> Oktober 2026</span>
+              <span><i class="fas fa-laptop-code"></i> Platform Nasional</span>
+            </div>
+            <h4 class="ui-card-title">Platform Portal Digital MPK Terpadu</h4>
+            <p class="ui-card-excerpt">Inovasi sistem manajemen aspirasi dan database keanggotaan MPK yang memudahkan pelaporan dan transparansi kegiatan siswa.</p>
+            <div class="ui-card-footer">
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-blue);">Komisi Humas & IT</span>
+              <a href="pages/proker.html" class="btn-read-link">Detail <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Website (Susunan Semula dengan Background Putih, Shape Tipis & Garis Biru) -->
+  <footer class="site-footer">
+    <!-- Shape Tipis di Background sebagai Hiasan -->
+    <div class="footer-shape-bg" aria-hidden="true"></div>
+    <div class="footer-ambient-glow" aria-hidden="true"></div>
+
+    <div class="container footer-content-relative">
+      <div class="footer-main-grid">
+        <!-- Kolom 1: Brand, Deskripsi Singkat & Sosial Media -->
+        <div class="footer-col-brand">
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+            <img src="assets/images/fomnas_logo.png" alt="FOMNAS" style="height: 48px; width: auto; object-fit: contain;">
+            <h3 style="margin-bottom: 0;">FORUM MPK NASIONAL</h3>
+          </div>
+          <p>
+            Wadah aspirasi dan kreasi Majelis Permusyawaratan Kelas seluruh Indonesia. Membangun karakter kepemimpinan siswa yang berintegritas, kritis, dan berdaya saing nasional.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" class="footer-social-btn" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com" class="footer-social-btn" aria-label="TikTok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+            <a href="https://facebook.com" class="footer-social-btn" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/6281234567890" class="footer-social-btn" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Kolom 2: Menu Navigasi -->
+        <div class="footer-col-nav">
+          <h4>Navigasi</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="pages/tentang.html">Tentang Kami</a></li>
+            <li><a href="pages/komisi.html">MPK / Komisi</a></li>
+            <li><a href="pages/news.html">News</a></li>
+            <li><a href="pages/proker.html">Program Kerja</a></li>
+            <li><a href="pages/kontak.html">Kontak</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Kontak Kami -->
+        <div class="footer-col-contact">
+          <h4>Kontak</h4>
+          <div class="footer-contact-items">
+            <div class="contact-row-item">
+              <span class="icon"><i class="fas fa-phone-alt"></i></span>
+              <p><a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+            </div>
+            <div class="contact-row-item">
+              <span class="icon"><i class="fas fa-envelope"></i></span>
+              <p><a href="mailto:akunfomnas@fomnas.id">akunfomnas@fomnas.id</a></p>
+            </div>
+            <div class="contact-row-item">
+              <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+              <p>Jl. LU Adisucipto No. 33, Manahan, Kota Surakarta, Jawa Tengah 57139</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom 4: Widget Lokasi Peta -->
+        <div class="footer-col-map">
+          <h4>Lokasi Sekretariat</h4>
+          <div class="footer-map-box">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.126487120349!2d110.80373207575306!3d-7.561168174665487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a167a9a4b0001%3A0x1234567890abcdef!2sSurakarta%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1715000000000!5m2!1sid!2sid"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Peta Lokasi Sekretariat FOMNAS">
+            </iframe>
+          </div>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="footer-map-link">
+            <i class="fas fa-external-link-alt"></i> Buka di Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 Forum MPK Nasional. All rights reserved.</p>
+        <p>Didukung oleh Forum Majelis Permusyawaratan Kelas Seluruh Indonesia</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll to Top Button -->
+  <button class="scroll-top-btn" aria-label="Kembali ke atas">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Interactive JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="100%" height="100%" fill="none">
+  <!-- Bar 1 (Pink) -->
+  <rect x="10" y="24" width="8.5" height="34" rx="4.25" fill="#E81C7E"/>
+  <!-- Bar 2 (Yellow-Green) -->
+  <rect x="23" y="16" width="8.5" height="42" rx="4.25" fill="#EAB308"/>
+  <!-- Bar 3 (Green) -->
+  <rect x="36" y="8" width="8.5" height="50" rx="4.25" fill="#22C55E"/>
+  <!-- Bar 4 (Cyan) -->
+  <rect x="49" y="18" width="8.5" height="40" rx="4.25" fill="#0EA5E9"/>
+  <!-- Bar 5 (Purple) -->
+  <rect x="62" y="22" width="8.5" height="36" rx="4.25" fill="#7C3AED"/>
+  
+  <!-- Underline arch -->
+  <path d="M 6 62 Q 40 57 74 62" stroke="#64748B" stroke-width="2" stroke-linecap="round" fill="none"/>
+  
+  <!-- FOMNAS text -->
+  <text x="40" y="74" font-family="'Plus Jakarta Sans', 'Inter', Arial, sans-serif" font-weight="900" font-size="12" fill="#0F172A" text-anchor="middle" letter-spacing="1">FOMNAS</text>
+  
+  <!-- Brand Title -->
+  <text x="96" y="48" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="24" fill="#0A1128">
+    <tspan font-weight="400">Forum </tspan><tspan font-weight="800">MPK Nasional</tspan>
+  </text>
+</svg>
+

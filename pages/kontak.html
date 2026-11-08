@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak & Aspirasi - Forum MPK Nasional</title>
+  <meta name="description" content="Kirimkan aspirasi, pertanyaan, atau permohonan kerjasama kepada pengurus Forum Majelis Permusyawaratan Kelas Nasional (FOMNAS).">
+
+  <link rel="icon" type="image/png" href="../assets/images/fomnas_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <div class="ambient-bg"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="../index.html" class="brand-logo" aria-label="Beranda Forum MPK Nasional">
+        <img src="../assets/images/fomnas_logo.png" alt="Forum MPK Nasional" class="logo-img">
+        <span class="brand-text">Forum <strong>MPK Nasional</strong></span>
+      </a>
+
+      <nav class="nav-pill-wrapper" aria-label="Navigasi Utama">
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link">Beranda</a>
+          <a href="tentang.html" class="nav-link">Tentang</a>
+          <a href="komisi.html" class="nav-link">MPK</a>
+          <a href="news.html" class="nav-link">News</a>
+          <a href="proker.html" class="nav-link">Proker</a>
+          <a href="kontak.html" class="nav-link active">Kontak</a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Buka Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu-overlay"></div>
+  <aside class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="../assets/images/fomnas_logo.png" alt="FOMNAS" style="height: 38px;">
+        <span style="font-weight: 800; font-size: 1.15rem; color: #0A1128;">FOMNAS</span>
+      </div>
+      <button class="mobile-menu-close" aria-label="Tutup Menu" style="font-size: 1.5rem; color: #0A1128;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <a href="../index.html" class="nav-link">Beranda</a>
+    <a href="tentang.html" class="nav-link">Tentang</a>
+    <a href="komisi.html" class="nav-link">MPK</a>
+    <a href="news.html" class="nav-link">News</a>
+    <a href="proker.html" class="nav-link">Proker</a>
+    <a href="kontak.html" class="nav-link active">Kontak</a>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="page-hero-banner">
+    <div class="container">
+      <h1>Hubungi <span style="font-weight: 800;">Kami</span></h1>
+      <p>Sampaikan aspirasi, ide inovatif, pertanyaan, atau inisiasi kerjasama strategis bersama FOMNAS</p>
+      <div class="page-breadcrumbs">
+        <a href="../index.html">Beranda</a>
+        <span>/</span>
+        <span style="color: var(--color-heading); font-weight: 600;">Kontak</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Details Section -->
+  <section class="content-grid-section" style="padding-top: 10px;">
+    <div class="container">
+      <div class="contact-form-layout">
+        <!-- Left: Contact Form Card -->
+        <div class="contact-card-white">
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--color-heading); margin-bottom: 8px;">Kirim Suara Aspirasi</h2>
+          <p style="color: #64748B; font-size: 0.95rem; margin-bottom: 28px;">Formulir ini terhubung langsung dengan tim Komisi III (Aspirasi & Advokasi) FOMNAS.</p>
+
+          <form id="fomnasContactForm" onsubmit="event.preventDefault(); alert('Terima kasih! Suara aspirasi Anda telah diterima oleh Sekretariat FOMNAS.'); this.reset();">
+            <div class="form-group">
+              <label for="fullName">Nama Lengkap</label>
+              <input type="text" id="fullName" class="form-input" placeholder="Masukkan nama Anda..." required>
+            </div>
+
+            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label for="schoolName">Asal Sekolah</label>
+                <input type="text" id="schoolName" class="form-input" placeholder="Nama SMA/SMK/MA..." required>
+              </div>
+              <div>
+                <label for="province">Provinsi</label>
+                <input type="text" id="province" class="form-input" placeholder="Contoh: Jawa Tengah" required>
+              </div>
+            </div>
+
+            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label for="contactEmail">Email</label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="email@sekolah.sch.id" required>
+              </div>
+              <div>
+                <label for="category">Kategori Pesan</label>
+                <select id="category" class="form-input" required>
+                  <option value="">Pilih Kategori...</option>
+                  <option value="aspirasi">Suara Aspirasi Siswa</option>
+                  <option value="konsultasi">Konsultasi AD/ART & Sidang</option>
+                  <option value="kerjasama">Kerjasama / Studi Banding</option>
+                  <option value="umum">Pertanyaan Umum</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="messageBody">Isi Pesan / Aspirasi</label>
+              <textarea id="messageBody" class="form-input" placeholder="Tuliskan gagasan, keluhan, atau pertanyaan Anda secara rinci..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-fomnas" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i> Kirim Aspirasi Sekarang
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Information & Channels -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- Card 1: Sekretariat -->
+          <div class="ui-card" style="padding: 28px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div class="komisi-icon-circle" style="margin-bottom: 0; width: 50px; height: 50px; font-size: 1.3rem;">📍</div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-heading); margin-bottom: 6px;">Sekretariat Nasional</h3>
+                <p style="color: #64748B; font-size: 0.9rem; line-height: 1.6;">
+                  Jl. LU Adisucipto No. 33, Manahan, Kota Surakarta, Jawa Tengah 57139
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Email & Helpdesk -->
+          <div class="ui-card" style="padding: 28px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div class="komisi-icon-circle" style="margin-bottom: 0; width: 50px; height: 50px; font-size: 1.3rem;">✉️</div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-heading); margin-bottom: 6px;">Surat Elektronik (Email)</h3>
+                <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 4px;"><strong>Umum:</strong> akunfomnas@fomnas.id</p>
+                <p style="color: #64748B; font-size: 0.9rem;"><strong>Advokasi:</strong> advokasi@fomnas.id</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: WhatsApp & Telepon -->
+          <div class="ui-card" style="padding: 28px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div class="komisi-icon-circle" style="margin-bottom: 0; width: 50px; height: 50px; font-size: 1.3rem;">📞</div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-heading); margin-bottom: 6px;">Layanan WhatsApp FOMNAS</h3>
+                <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 4px;">+62 812-3456-7890 (Helpdesk 24 Jam)</p>
+                <p style="color: #94A3B8; font-size: 0.85rem;">Senin — Jumat: 08.00 - 17.00 WIB</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Social Community -->
+          <div class="ui-card" style="padding: 28px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-heading); margin-bottom: 12px;">Komunitas Resmi</h3>
+            <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 18px;">Ikuti kanal resmi kami untuk informasi live report sidang, siaran pers, dan pendaftaran seminar.</p>
+            <div style="display: flex; gap: 12px;">
+              <a href="https://instagram.com" class="btn-carousel-ctrl" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+              <a href="https://tiktok.com" class="btn-carousel-ctrl" aria-label="TikTok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+              <a href="https://facebook.com" class="btn-carousel-ctrl" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://wa.me/6281234567890" class="btn-carousel-ctrl" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Website (Susunan Semula dengan Background Putih, Shape Tipis & Garis Biru) -->
+  <footer class="site-footer">
+    <div class="footer-shape-bg" aria-hidden="true"></div>
+    <div class="footer-ambient-glow" aria-hidden="true"></div>
+
+    <div class="container footer-content-relative">
+      <div class="footer-main-grid">
+        <!-- Kolom 1: Brand, Deskripsi Singkat & Sosial Media -->
+        <div class="footer-col-brand">
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+            <img src="../assets/images/fomnas_logo.png" alt="FOMNAS" style="height: 48px; width: auto; object-fit: contain;">
+            <h3 style="margin-bottom: 0;">FORUM MPK NASIONAL</h3>
+          </div>
+          <p>
+            Wadah aspirasi dan kreasi Majelis Permusyawaratan Kelas seluruh Indonesia. Membangun karakter kepemimpinan siswa yang berintegritas, kritis, dan berdaya saing nasional.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" class="footer-social-btn" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com" class="footer-social-btn" aria-label="TikTok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+            <a href="https://facebook.com" class="footer-social-btn" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/6281234567890" class="footer-social-btn" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Kolom 2: Menu Navigasi -->
+        <div class="footer-col-nav">
+          <h4>Navigasi</h4>
+          <ul class="footer-nav-list">
+            <li><a href="../index.html">Beranda</a></li>
+            <li><a href="tentang.html">Tentang Kami</a></li>
+            <li><a href="komisi.html">MPK / Komisi</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="proker.html">Program Kerja</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Kontak Kami -->
+        <div class="footer-col-contact">
+          <h4>Kontak</h4>
+          <div class="footer-contact-items">
+            <div class="contact-row-item">
+              <span class="icon"><i class="fas fa-phone-alt"></i></span>
+              <p><a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+            </div>
+            <div class="contact-row-item">
+              <span class="icon"><i class="fas fa-envelope"></i></span>
+              <p><a href="mailto:akunfomnas@fomnas.id">akunfomnas@fomnas.id</a></p>
+            </div>
+            <div class="contact-row-item">
+              <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+              <p>Jl. LU Adisucipto No. 33, Manahan, Kota Surakarta, Jawa Tengah 57139</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom 4: Widget Lokasi Peta -->
+        <div class="footer-col-map">
+          <h4>Lokasi Sekretariat</h4>
+          <div class="footer-map-box">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.126487120349!2d110.80373207575306!3d-7.561168174665487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a167a9a4b0001%3A0x1234567890abcdef!2sSurakarta%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1715000000000!5m2!1sid!2sid"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Peta Lokasi Sekretariat FOMNAS">
+            </iframe>
+          </div>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="footer-map-link">
+            <i class="fas fa-external-link-alt"></i> Buka di Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 Forum MPK Nasional. All rights reserved.</p>
+        <p>Didukung oleh Forum Majelis Permusyawaratan Kelas Seluruh Indonesia</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top-btn" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
