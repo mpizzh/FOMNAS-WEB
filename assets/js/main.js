@@ -5,13 +5,269 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
-  initCoverflowCarousel();
-  initContentFilters();
   initScrollTop();
+  Promise.all([initPublicNews(), initPublicPrograms()]).finally(() => {
+    initCoverflowCarousel();
+    initContentFilters();
+  });
 });
 
 /* ========================================================
-   1. NAVBAR & MOBILE DRAWER
+   1. PUBLIC NEWS
+   ======================================================== */
+async function initPublicNews() {
+  const newsGrid = document.querySelector('[data-news-grid]');
+  const carousel = document.querySelector('[data-news-carousel]');
+  if (!newsGrid && !carousel) return;
+
+  const status = document.querySelector('[data-news-status]');
+  const endpoint = carousel ? '/api/news?limit=5' : '/api/news';
+  try {
+    const response = await fetch(endpoint);
+    if (!response.ok) throw new Error(`Permintaan berita gagal (${response.status}).`);
+    const news = await response.json();
+
+    if (newsGrid) {
+      newsGrid.replaceChildren();
+      if (news.length === 0) {
+        status.textContent = 'Belum ada berita untuk ditampilkan.';
+      } else {
+        news.forEach(item => newsGrid.append(createNewsCard(item)));
+        status.textContent = '';
+      }
+    }
+
+    if (carousel) {
+      carousel.replaceChildren(...news.map(createCarouselCard));
+      if (!newsGrid && news.length === 0) {
+        status.textContent = 'Belum ada berita untuk ditampilkan.';
+      }
+    }
+  } catch (error) {
+    newsGrid?.replaceChildren();
+    carousel?.replaceChildren();
+    if (status) status.textContent = 'Berita terbaru belum dapat dimuat. Silakan coba beberapa saat lagi.';
+    console.error('Gagal memuat berita:', error);
+  }
+}
+
+function createNewsCard(item) {
+  const article = document.createElement('article');
+  article.className = 'ui-card';
+  article.dataset.category = 'headline';
+  article.id = item.slug;
+
+  const thumbnail = document.createElement('div');
+  thumbnail.className = 'ui-card-thumb';
+  const image = document.createElement('img');
+  image.src = item.image_url || '/assets/images/fomnas_logo.png';
+  image.alt = item.title;
+  const badge = document.createElement('span');
+  badge.className = 'ui-badge';
+  badge.textContent = 'Berita';
+  thumbnail.append(image, badge);
+
+  const body = document.createElement('div');
+  body.className = 'ui-card-body';
+  const meta = document.createElement('div');
+  meta.className = 'ui-card-meta';
+  const date = document.createElement('span');
+  date.textContent = formatPublicNewsDate(item.created_at);
+  const author = document.createElement('span');
+  author.textContent = 'Redaksi FOMNAS';
+  meta.append(date, author);
+
+  const title = document.createElement('h3');
+  title.className = 'ui-card-title';
+  title.textContent = item.title;
+  const excerpt = document.createElement('p');
+  excerpt.className = 'ui-card-excerpt';
+  excerpt.textContent = item.content;
+
+  const footer = document.createElement('div');
+  footer.className = 'ui-card-footer';
+  const category = document.createElement('span');
+  category.textContent = 'Berita FOMNAS';
+  const link = document.createElement('a');
+  link.className = 'btn-read-link';
+  link.href = `/news-detail.html?id=${encodeURIComponent(item.id)}`;
+  link.textContent = 'Baca Selengkapnya';
+  footer.append(category, link);
+  body.append(meta, title, excerpt, footer);
+  article.append(thumbnail, body);
+  setNewsCardNavigation(article, item.id, item.title);
+  return article;
+}
+
+function createCarouselCard(item, index) {
+  const card = document.createElement('div');
+  card.className = `coverflow-card ${index === 0 ? 'card-active' : index === 1 ? 'card-next' : 'card-hidden'}`;
+  card.dataset.newsUrl = `/news-detail.html?id=${encodeURIComponent(item.id)}`;
+  const media = document.createElement('div');
+  media.className = 'card-media';
+  const image = document.createElement('img');
+  image.src = item.image_url || '/assets/images/fomnas_logo.png';
+  image.alt = item.title;
+  media.append(image);
+
+  const content = document.createElement('div');
+  content.className = 'card-content-area';
+  const title = document.createElement('h3');
+  title.textContent = item.title;
+  const excerpt = document.createElement('p');
+  excerpt.textContent = item.content;
+  const footer = document.createElement('div');
+  footer.className = 'card-footer-action';
+  const link = document.createElement('a');
+  link.className = 'btn-read-link';
+  link.href = `/news-detail.html?id=${encodeURIComponent(item.id)}`;
+  link.textContent = 'Baca Selengkapnya';
+  footer.append(link);
+  content.append(title, excerpt, footer);
+  card.append(media, content);
+  return card;
+}
+
+function setNewsCardNavigation(card, id, title) {
+  const url = `/news-detail.html?id=${encodeURIComponent(id)}`;
+  card.tabIndex = 0;
+  card.setAttribute('role', 'link');
+  card.setAttribute('aria-label', `Baca berita: ${title}`);
+  card.addEventListener('click', event => {
+    if (event.target.closest('a, button')) return;
+    window.location.assign(url);
+  });
+  card.addEventListener('keydown', event => {
+    if (event.target !== card || !['Enter', ' '].includes(event.key)) return;
+    event.preventDefault();
+    window.location.assign(url);
+  });
+}
+
+function formatPublicNewsDate(value) {
+  const date = new Date(`${value.replace(' ', 'T')}Z`);
+  return Number.isNaN(date.getTime()) ? value : date.toLocaleDateString('id-ID');
+}
+
+/* ========================================================
+   2. PUBLIC PROGRAMS
+   ======================================================== */
+async function initPublicPrograms() {
+  const homepageGrid = document.querySelector('[data-program-grid]');
+  const prokerGrid = document.querySelector('[data-proker-grid]');
+  const featuredCard = document.querySelector('[data-program-featured]');
+  if (!homepageGrid && !prokerGrid) return;
+  const statusMessage = document.querySelector('[data-program-status], [data-proker-status]');
+
+  try {
+    const response = await fetch('/api/programs');
+    if (!response.ok) throw new Error(`Permintaan program gagal (${response.status}).`);
+    const programs = await response.json();
+    if (programs.length === 0) {
+      homepageGrid?.replaceChildren();
+      prokerGrid?.replaceChildren();
+      if (featuredCard) featuredCard.hidden = true;
+      statusMessage.textContent = 'Belum ada program untuk ditampilkan.';
+      return;
+    }
+
+    if (prokerGrid) {
+      prokerGrid.replaceChildren(...programs.map(createProgramCard));
+      statusMessage.textContent = '';
+    }
+
+    if (homepageGrid) {
+      const priorityProgram = programs.find(program => Number(program.is_priority) === 1);
+      if (priorityProgram) {
+        renderFeaturedProgram(featuredCard, priorityProgram);
+      } else {
+        featuredCard.hidden = true;
+      }
+
+      const regularPrograms = programs.filter(program => Number(program.is_priority) !== 1);
+      const additionalPrograms = regularPrograms.slice(0, 3);
+      if (additionalPrograms.length < 3) {
+        const remaining = programs.filter(program => program.id !== priorityProgram?.id && !additionalPrograms.includes(program));
+        additionalPrograms.push(...remaining.slice(0, 3 - additionalPrograms.length));
+      }
+      homepageGrid.replaceChildren(...additionalPrograms.map(createProgramCard));
+      statusMessage.textContent = '';
+    }
+  } catch (error) {
+    homepageGrid?.replaceChildren();
+    prokerGrid?.replaceChildren();
+    if (featuredCard) featuredCard.hidden = true;
+    statusMessage.textContent = 'Program belum dapat dimuat. Silakan coba beberapa saat lagi.';
+    console.error('Gagal memuat program:', error);
+  }
+}
+
+function renderFeaturedProgram(featuredCard, program) {
+  if (!featuredCard) return;
+  featuredCard.querySelector('[data-program-featured-title]').textContent = program.title;
+  featuredCard.querySelector('[data-program-featured-category]').textContent = program.category;
+  featuredCard.querySelector('[data-program-featured-description]').textContent = program.description;
+  const link = featuredCard.querySelector('[data-program-featured-link]');
+  link.href = `/program/${encodeURIComponent(program.id)}`;
+  const image = featuredCard.querySelector('[data-program-featured-image]');
+  image.src = program.image_url || '/assets/images/fomnas_logo.png';
+  image.alt = program.title;
+  featuredCard.hidden = false;
+}
+
+function createProgramCard(item) {
+  const statusDetails = {
+    Mendatang: { filter: 'upcoming', label: 'Akan Datang', className: 'status-upcoming' },
+    Berjalan: { filter: 'ongoing', label: 'Sedang Berjalan', className: 'status-ongoing' },
+    Selesai: { filter: 'completed', label: 'Terlaksana', className: 'status-completed' }
+  }[item.status] || { filter: '', label: item.status, className: '' };
+
+  const article = document.createElement('article');
+  article.className = 'ui-card';
+  article.dataset.status = statusDetails.filter;
+
+  const thumbnail = document.createElement('div');
+  thumbnail.className = 'ui-card-thumb';
+  const image = document.createElement('img');
+  image.src = item.image_url || '/assets/images/fomnas_logo.png';
+  image.alt = item.title;
+  const badge = document.createElement('span');
+  badge.className = `ui-badge ${statusDetails.className}`.trim();
+  badge.textContent = statusDetails.label;
+  thumbnail.append(image, badge);
+
+  const body = document.createElement('div');
+  body.className = 'ui-card-body';
+  const meta = document.createElement('div');
+  meta.className = 'ui-card-meta';
+  const date = document.createElement('span');
+  date.textContent = `Ditambahkan ${formatPublicNewsDate(item.created_at)}`;
+  meta.append(date);
+
+  const title = document.createElement('h3');
+  title.className = 'ui-card-title';
+  title.textContent = item.title;
+  const description = document.createElement('p');
+  description.className = 'ui-card-excerpt';
+  description.textContent = item.description;
+
+  const footer = document.createElement('div');
+  footer.className = 'ui-card-footer';
+  const categoryLabel = document.createElement('span');
+  categoryLabel.className = 'program-category';
+  categoryLabel.textContent = item.category;
+  const link = document.createElement('a');
+  link.className = 'btn-read-link';
+  link.href = `/program/${encodeURIComponent(item.id)}`;
+  link.textContent = 'Detail Program';
+  footer.append(categoryLabel, link);
+  body.append(meta, title, description, footer);
+  article.append(thumbnail, body);
+  return article;
+}
+
+/* ========================================================
+   3. NAVBAR & MOBILE DRAWER
    ======================================================== */
 function initNavbar() {
   const header = document.querySelector('.header');
@@ -60,7 +316,7 @@ function initNavbar() {
 }
 
 /* ========================================================
-   2. 3D COVERFLOW CAROUSEL ("MPK Minggu ini.")
+   4. 3D COVERFLOW CAROUSEL ("MPK Minggu ini.")
    ======================================================== */
 function initCoverflowCarousel() {
   const carousel = document.querySelector('.carousel-stage');
@@ -137,6 +393,10 @@ function initCoverflowCarousel() {
     card.addEventListener('click', (e) => {
       // Don't trigger slide change if clicking directly on "Baca Selengkapnya" link
       if (e.target.closest('.btn-read-link')) return;
+      if (card.dataset.newsUrl) {
+        window.location.assign(card.dataset.newsUrl);
+        return;
+      }
 
       if (card.classList.contains('card-prev')) {
         prevSlide();
@@ -219,7 +479,7 @@ function initCoverflowCarousel() {
 }
 
 /* ========================================================
-   3. CONTENT FILTERS (News & Proker Cards Filter)
+   5. CONTENT FILTERS (News & Program Cards Filter)
    ======================================================== */
 function initContentFilters() {
   const filterPills = document.querySelectorAll('.filter-pill');
@@ -256,7 +516,7 @@ function initContentFilters() {
 }
 
 /* ========================================================
-   4. SCROLL TO TOP BUTTON
+   6. SCROLL TO TOP BUTTON
    ======================================================== */
 function initScrollTop() {
   const scrollBtn = document.querySelector('.scroll-top-btn');

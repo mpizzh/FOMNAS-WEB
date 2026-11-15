@@ -40,7 +40,7 @@
           <a href="pages/tentang.html" class="nav-link">Tentang</a>
           <a href="pages/komisi.html" class="nav-link">MPK</a>
           <a href="pages/news.html" class="nav-link">News</a>
-          <a href="pages/proker.html" class="nav-link">Proker</a>
+          <a href="pages/proker.html" class="nav-link">Program</a>
           <a href="pages/kontak.html" class="nav-link">Kontak</a>
         </div>
       </nav>
@@ -68,31 +68,32 @@
     <a href="pages/tentang.html" class="nav-link">Tentang</a>
     <a href="pages/komisi.html" class="nav-link">MPK</a>
     <a href="pages/news.html" class="nav-link">News</a>
-    <a href="pages/proker.html" class="nav-link">Proker</a>
+    <a href="pages/proker.html" class="nav-link">Program</a>
     <a href="pages/kontak.html" class="nav-link">Kontak</a>
   </aside>
 
-  <!-- Hero Section (Exact Match to Video Frame 1-5) -->
-  <section class="hero-section">
-    <div class="container">
-      <h1 class="hero-title">
-        Website <span class="bold-text">Resmi</span> Forum<br>
-        <span class="bold-text">Majelis Permusyawaratan Kelas</span><br>
-        <span class="bold-text">Nasional.</span>
-      </h1>
-      <p class="hero-subtitle">
-        Halo! kami hadir sebagai wadah untuk membantu rekan-rekan seputar <strong>Majelis Permusyawaratan Kelas</strong>
-      </p>
-    </div>
-  </section>
+  <div class="homepage-intro-stack">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">
+          Website <span class="bold-text">Resmi</span> Forum<br>
+          <span class="bold-text">Majelis Permusyawaratan Kelas</span><br>
+          Nasional.
+        </h1>
+        <p class="hero-subtitle">
+          Halo! kami hadir sebagai wadah untuk membantu rekan-rekan seputar Majelis Permusyawaratan Kelas
+        </p>
+      </div>
+    </section>
 
-  <!-- Section: "MPK Minggu ini." (3D Coverflow Carousel from Video Frame 6-10) -->
-  <section class="carousel-section" id="mpk-minggu-ini">
-    <div class="container-wide">
-      <h2 class="section-title">MPK Minggu ini.</h2>
+    <!-- Section: "MPK Minggu ini." (3D Coverflow Carousel from Video Frame 6-10) -->
+    <section class="carousel-section" id="mpk-minggu-ini">
+      <div class="container-wide">
+        <h2 class="section-title">MPK Minggu ini.</h2>
 
-      <div class="carousel-viewport">
-        <div class="carousel-stage">
+        <div class="carousel-viewport">
+          <div class="carousel-stage" data-news-carousel>
           <!-- Slide 1 (Active by Default) -->
           <div class="coverflow-card card-active">
             <div class="card-media">
@@ -162,115 +163,59 @@
               </div>
             </div>
           </div>
-        </div>
+          </div>
 
-        <!-- Controls: Buttons & Dots -->
-        <div class="carousel-nav-controls">
-          <button class="btn-carousel-ctrl btn-carousel-prev" aria-label="Slide Sebelumnya">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <div class="carousel-dots"></div>
-          <button class="btn-carousel-ctrl btn-carousel-next" aria-label="Slide Selanjutnya">
-            <i class="fas fa-chevron-right"></i>
-          </button>
+          <!-- Controls: Buttons & Dots -->
+          <div class="carousel-nav-controls">
+            <button class="btn-carousel-ctrl btn-carousel-prev" aria-label="Slide Sebelumnya">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-dots"></div>
+            <button class="btn-carousel-ctrl btn-carousel-next" aria-label="Slide Selanjutnya">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
+        <p class="news-status" data-news-status role="status" aria-live="polite"></p>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- Section: "Program FOMNAS" (From Video Frame 11-15) -->
   <section class="program-fomnas-section" id="program-fomnas">
     <div class="container">
       <h2 class="section-title">Program FOMNAS</h2>
 
-      <!-- Featured Program Card (Kongres MPK I) -->
-      <div class="featured-program-card">
+      <div class="featured-program-card" data-program-featured hidden>
         <div class="program-card-text">
-          <h3>Kongres MPK I</h3>
-          <div class="subtitle">—Nusantara, MPK XX berhasil</div>
-
-          <!-- Decorative Lines matching the Figma layout in video -->
-          <div class="program-desc-lines" aria-hidden="true">
-            <div class="desc-line"></div>
-            <div class="desc-line"></div>
-            <div class="desc-line"></div>
-            <div class="desc-line"></div>
-            <div class="desc-line"></div>
-            <div class="desc-line"></div>
-          </div>
-
-          <p class="program-desc-p">
-            Kongres Nasional Majelis Permusyawaratan Kelas pertama yang mempertemukan perwakilan siswa dari 38 provinsi di Indonesia. Menyatukan komitmen bersama untuk memperkuat peran legislatif siswa, menegakkan etika keorganisasian, serta merumuskan rekomendasi kebijakan pendidikan nasional yang aspiratif.
-          </p>
-
+          <span class="program-priority-badge">Program Utama</span>
+          <h3 data-program-featured-title></h3>
+          <div class="subtitle" data-program-featured-category></div>
+          <p class="program-desc-p" data-program-featured-description></p>
           <div class="card-footer-action">
-            <a href="pages/proker.html" class="btn-read-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            <a data-program-featured-link class="btn-read-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
         <div class="program-card-image">
-          <img src="assets/images/kongres_fomnas.png" alt="Dokumentasi Kongres MPK I - Forum MPK Nasional">
+          <img data-program-featured-image alt="">
         </div>
       </div>
+      <p class="news-status" data-program-status role="status" aria-live="polite">Memuat program...</p>
+      <div class="program-cards-grid" data-program-grid></div>
+    </div>
+  </section>
 
-      <!-- Additional Program Highlights Grid -->
-      <div class="program-cards-grid">
-        <div class="ui-card">
-          <div class="ui-card-thumb">
-            <img src="assets/images/thumbnails/thumb_2.png" alt="Sekolah Legislator Pelajar">
-            <span class="ui-badge status-ongoing">Sedang Berjalan</span>
-          </div>
-          <div class="ui-card-body">
-            <div class="ui-card-meta">
-              <span><i class="far fa-calendar"></i> Berkelanjutan</span>
-              <span><i class="fas fa-users"></i> 1.200+ Peserta</span>
-            </div>
-            <h4 class="ui-card-title">Sekolah Legislator Pelajar Indonesia</h4>
-            <p class="ui-card-excerpt">Modul pelatihan daring dan luring bersertifikat untuk meningkatkan pemahaman siswa mengenai pembuatan AD/ART dan pengawasan program OSIS.</p>
-            <div class="ui-card-footer">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-blue);">Komisi Kaderisasi</span>
-              <a href="pages/proker.html" class="btn-read-link">Detail <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
+  <section class="aspirasi-banner-section" aria-labelledby="aspirasi-banner-title">
+    <div class="container">
+      <div class="aspirasi-banner">
+        <div class="aspirasi-banner-copy">
+          <p class="aspirasi-banner-eyebrow">SUARA PELAJAR, LANGKAH BERSAMA</p>
+          <h2 id="aspirasi-banner-title">Punya Gagasan atau Aspirasi Seputar Pelajar &amp; Kesiswaan?</h2>
+          <p>Sampaikan suara, kritik, maupun usulanmu secara langsung untuk diteruskan oleh Forum MPK Nasional.</p>
         </div>
-
-        <div class="ui-card">
-          <div class="ui-card-thumb">
-            <img src="assets/images/thumbnails/thumb_3.png" alt="Rembuk Aspirasi Pelajar">
-            <span class="ui-badge status-upcoming">Akan Datang</span>
-          </div>
-          <div class="ui-card-body">
-            <div class="ui-card-meta">
-              <span><i class="far fa-calendar"></i> Desember 2026</span>
-              <span><i class="fas fa-map-marker-alt"></i> Daring Nasional</span>
-            </div>
-            <h4 class="ui-card-title">Rembuk Nasional Aspirasi Pelajar</h4>
-            <p class="ui-card-excerpt">Forum akbar penyerapan aspirasi siswa se-Nusantara mengenai tantangan kesejahteraan mental dan fasilitas sekolah di penjuru negeri.</p>
-            <div class="ui-card-footer">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-blue);">Komisi Advokasi</span>
-              <a href="pages/proker.html" class="btn-read-link">Detail <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ui-card">
-          <div class="ui-card-thumb">
-            <img src="assets/images/thumbnails/thumb_5.png" alt="Digitalisasi Parlemen Siswa">
-            <span class="ui-badge status-completed">Terlaksana</span>
-          </div>
-          <div class="ui-card-body">
-            <div class="ui-card-meta">
-              <span><i class="far fa-calendar"></i> Oktober 2026</span>
-              <span><i class="fas fa-laptop-code"></i> Platform Nasional</span>
-            </div>
-            <h4 class="ui-card-title">Platform Portal Digital MPK Terpadu</h4>
-            <p class="ui-card-excerpt">Inovasi sistem manajemen aspirasi dan database keanggotaan MPK yang memudahkan pelaporan dan transparansi kegiatan siswa.</p>
-            <div class="ui-card-footer">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-blue);">Komisi Humas & IT</span>
-              <a href="pages/proker.html" class="btn-read-link">Detail <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
+        <a class="aspirasi-banner-button" href="pages/kontak.html#fomnasContactForm">
+          Kirim Suara Aspirasi <span aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -308,7 +253,7 @@
             <li><a href="pages/tentang.html">Tentang Kami</a></li>
             <li><a href="pages/komisi.html">MPK / Komisi</a></li>
             <li><a href="pages/news.html">News</a></li>
-            <li><a href="pages/proker.html">Program Kerja</a></li>
+            <li><a href="pages/proker.html">Program</a></li>
             <li><a href="pages/kontak.html">Kontak</a></li>
           </ul>
         </div>

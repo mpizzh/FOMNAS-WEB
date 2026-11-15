@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dashboard Admin | FOMNAS</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; color: #172033; background: #f3f6fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px max(24px, calc((100% - 1120px) / 2)); background: #123b82; color: #fff; }
+    header h1 { margin: 0; font-size: 1.2rem; }
+    header button { padding: 9px 14px; border: 1px solid #ffffff80; border-radius: 8px; background: transparent; color: #fff; font: inherit; cursor: pointer; }
+    main { width: min(100% - 32px, 1120px); margin: 34px auto; }
+    .panel { margin-bottom: 24px; padding: 24px; border: 1px solid #e2e8f0; border-radius: 14px; background: #fff; box-shadow: 0 8px 25px #12264a0a; }
+    h2 { margin: 0 0 20px; font-size: 1.25rem; }
+    label { display: block; margin: 16px 0 7px; font-weight: 700; font-size: .92rem; }
+    input, textarea, select { width: 100%; padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; }
+    textarea { min-height: 150px; resize: vertical; }
+    input:focus, textarea:focus { outline: 3px solid #2563eb26; border-color: #2563eb; }
+    .hint { margin: 7px 0 0; color: #64748b; font-size: .85rem; }
+    .primary { margin-top: 18px; padding: 11px 16px; border: 0; border-radius: 8px; background: #123b82; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    button:disabled { opacity: .65; cursor: wait; }
+    [role="status"] { min-height: 1.4em; color: #334155; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 12px 10px; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+    th { color: #475569; font-size: .85rem; }
+    td img { width: 64px; height: 44px; border-radius: 6px; object-fit: cover; }
+    .delete-button { padding: 8px 10px; border: 0; border-radius: 7px; background: #fee2e2; color: #b91c1c; font: inherit; cursor: pointer; }
+    .secondary { margin: 18px 0 0 8px; padding: 11px 16px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; color: #334155; font: inherit; cursor: pointer; }
+    .secondary[hidden] { display: none; }
+    .priority-option { display: flex; align-items: center; gap: 10px; }
+    .priority-option input { width: auto; }
+    .priority-badge { display: inline-block; padding: 5px 9px; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: .8rem; font-weight: 700; }
+    .priority-badge.regular { background: #e2e8f0; color: #475569; }
+    .row-action { display: flex; flex-wrap: wrap; gap: 6px; }
+    .edit-button, .priority-toggle { padding: 7px 9px; border: 0; border-radius: 7px; background: #dbeafe; color: #1d4ed8; font: inherit; cursor: pointer; }
+    .priority-toggle { background: #fef3c7; color: #92400e; }
+    .dashboard-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+    .dashboard-tab { padding: 10px 15px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; color: #334155; font: inherit; font-weight: 700; cursor: pointer; }
+    .dashboard-tab[aria-selected="true"] { border-color: #123b82; background: #123b82; color: #fff; }
+    .dashboard-section[hidden] { display: none; }
+    .aspiration-person strong, .aspiration-person span { display: block; }
+    .aspiration-person span { margin-top: 4px; color: #64748b; font-size: .88rem; }
+    .aspiration-message-cell { max-width: 380px; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .aspiration-status { display: inline-block; padding: 5px 9px; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: .8rem; font-weight: 700; white-space: nowrap; }
+    .aspiration-status.complete { background: #dcfce7; color: #166534; }
+    .aspiration-status.read { background: #dbeafe; color: #1d4ed8; }
+    .aspiration-status.replied { background: #e0e7ff; color: #3730a3; }
+    .complete-button { padding: 8px 10px; border: 0; border-radius: 7px; background: #dcfce7; color: #166534; font: inherit; font-weight: 700; cursor: pointer; }
+    .reply-dialog { width: min(560px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 24px; border: 0; border-radius: 14px; box-shadow: 0 20px 60px #0f172a40; }
+    .reply-dialog::backdrop { background: #0f172a80; }
+    .reply-dialog h2 { margin-bottom: 8px; }
+    .reply-dialog textarea { min-height: 180px; }
+    .reply-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; }
+    .reply-dialog .secondary { margin: 18px 0 0; }
+    @media (max-width: 600px) {
+      header { padding: 16px; }
+      .panel { padding: 18px; }
+      th, td { padding: 9px 7px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dashboard Admin FOMNAS</h1>
+    <button id="logout-button" type="button">Keluar</button>
+  </header>
+  <main>
+    <div class="dashboard-tabs" role="tablist" aria-label="Manajemen konten">
+      <button class="dashboard-tab" id="news-tab" type="button" role="tab" aria-selected="true" aria-controls="news-management">Kelola Berita</button>
+      <button class="dashboard-tab" id="proker-tab" type="button" role="tab" aria-selected="false" aria-controls="proker-management">Kelola Program</button>
+      <button class="dashboard-tab" id="aspiration-tab" type="button" role="tab" aria-selected="false" aria-controls="aspiration-management">Kelola Aspirasi</button>
+    </div>
+    <div id="news-management" class="dashboard-section" role="tabpanel" aria-labelledby="news-tab">
+      <section class="panel" aria-labelledby="create-heading">
+        <h2 id="create-heading">Tambah Berita</h2>
+        <form id="news-form">
+          <label for="title">Judul</label>
+          <input id="title" name="title" maxlength="200" required>
+          <label for="content">Isi berita</label>
+          <textarea id="content" name="content" maxlength="20000" required></textarea>
+          <label for="image">Upload thumbnail</label>
+          <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+          <p class="hint">JPG, PNG, WebP, atau GIF; maksimal 5 MB. Jika tidak upload, Anda dapat mengisi URL gambar.</p>
+          <label for="image_url">URL gambar (opsional)</label>
+          <input id="image_url" name="image_url" type="url" placeholder="https://contoh.com/gambar.jpg">
+          <button class="primary" type="submit">Simpan Berita</button>
+        </form>
+        <p id="form-message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="panel" aria-labelledby="list-heading">
+        <h2 id="list-heading">Daftar Berita</h2>
+        <p id="list-message" role="status" aria-live="polite"></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Thumbnail</th><th>Judul</th><th>Tanggal</th><th>Aksi</th></tr></thead>
+            <tbody id="news-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <div id="proker-management" class="dashboard-section" role="tabpanel" aria-labelledby="proker-tab" hidden>
+      <section class="panel" aria-labelledby="proker-create-heading">
+        <h2 id="proker-create-heading">Tambah Program</h2>
+        <form id="proker-form">
+          <input id="program-id" name="id" type="hidden">
+          <label for="proker-title">Judul Program</label>
+          <input id="proker-title" name="title" maxlength="200" required>
+          <label for="proker-category">Kategori / Komisi</label>
+          <input id="proker-category" name="category" maxlength="120" placeholder="Contoh: Komisi IV (Kaderisasi)" required>
+          <label for="proker-status">Status</label>
+          <select id="proker-status" name="status" required>
+            <option value="Mendatang">Mendatang</option>
+            <option value="Berjalan">Berjalan</option>
+            <option value="Selesai">Selesai</option>
+          </select>
+          <label for="proker-description">Deskripsi</label>
+          <textarea id="proker-description" name="description" maxlength="20000" required></textarea>
+          <label class="priority-option" for="proker-priority">
+            <input id="proker-priority" name="is_priority" type="checkbox" value="1">
+            Jadikan Program Utama / Prioritas
+          </label>
+          <label for="proker-image">Upload gambar program</label>
+          <input id="proker-image" name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+          <p class="hint">JPG, PNG, WebP, atau GIF; maksimal 5 MB. Gambar program dapat dikosongkan.</p>
+          <label for="proker-image-url">URL gambar (opsional)</label>
+          <input id="proker-image-url" name="image_url" type="url" placeholder="https://contoh.com/poster.jpg">
+          <button id="proker-submit-button" class="primary" type="submit">Simpan Program</button>
+          <button id="proker-cancel-edit" class="secondary" type="button" hidden>Batal Edit</button>
+        </form>
+        <p id="proker-form-message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="panel" aria-labelledby="proker-list-heading">
+        <h2 id="proker-list-heading">Daftar Program</h2>
+        <p id="proker-list-message" role="status" aria-live="polite"></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Gambar</th><th>Judul</th><th>Kategori</th><th>Status</th><th>Prioritas</th><th>Tanggal</th><th>Aksi</th></tr></thead>
+            <tbody id="proker-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <div id="aspiration-management" class="dashboard-section" role="tabpanel" aria-labelledby="aspiration-tab" hidden>
+      <section class="panel" aria-labelledby="aspiration-list-heading">
+        <h2 id="aspiration-list-heading">Daftar Suara Aspirasi</h2>
+        <p id="aspiration-list-message" role="status" aria-live="polite"></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Tanggal</th><th>Nama, Asal &amp; Email</th><th>Kategori</th><th>Isi Pesan / Gagasan</th><th>Status</th><th>Aksi</th></tr>
+            </thead>
+            <tbody id="aspiration-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <dialog id="aspiration-reply-dialog" class="reply-dialog" aria-labelledby="aspiration-reply-title">
+    <form id="aspiration-reply-form">
+      <h2 id="aspiration-reply-title">Balas Aspirasi</h2>
+      <input id="reply-aspiration-id" name="id" type="hidden">
+      <label for="reply-recipient">Email tujuan</label>
+      <input id="reply-recipient" type="email" readonly>
+      <label for="reply-subject">Subjek</label>
+      <input id="reply-subject" name="subject" maxlength="200" required>
+      <label for="reply-message">Pesan tanggapan</label>
+      <textarea id="reply-message" name="message" maxlength="10000" required></textarea>
+      <p id="aspiration-reply-feedback" role="status" aria-live="polite"></p>
+      <div class="reply-dialog-actions">
+        <button id="aspiration-reply-close" class="secondary" type="button">Tutup</button>
+        <button class="primary" type="submit">Kirim Balasan</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="/assets/js/admin.js" defer></script>
+</body>
+</html>

@@ -31,7 +31,7 @@
           <a href="tentang.html" class="nav-link">Tentang</a>
           <a href="komisi.html" class="nav-link">MPK</a>
           <a href="news.html" class="nav-link">News</a>
-          <a href="proker.html" class="nav-link">Proker</a>
+          <a href="proker.html" class="nav-link">Program</a>
           <a href="kontak.html" class="nav-link active">Kontak</a>
         </div>
       </nav>
@@ -58,7 +58,7 @@
     <a href="tentang.html" class="nav-link">Tentang</a>
     <a href="komisi.html" class="nav-link">MPK</a>
     <a href="news.html" class="nav-link">News</a>
-    <a href="proker.html" class="nav-link">Proker</a>
+    <a href="proker.html" class="nav-link">Program</a>
     <a href="kontak.html" class="nav-link active">Kontak</a>
   </aside>
 
@@ -84,46 +84,41 @@
           <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--color-heading); margin-bottom: 8px;">Kirim Suara Aspirasi</h2>
           <p style="color: #64748B; font-size: 0.95rem; margin-bottom: 28px;">Formulir ini terhubung langsung dengan tim Komisi III (Aspirasi & Advokasi) FOMNAS.</p>
 
-          <form id="fomnasContactForm" onsubmit="event.preventDefault(); alert('Terima kasih! Suara aspirasi Anda telah diterima oleh Sekretariat FOMNAS.'); this.reset();">
+          <form id="fomnasContactForm">
             <div class="form-group">
-              <label for="fullName">Nama Lengkap</label>
-              <input type="text" id="fullName" class="form-input" placeholder="Masukkan nama Anda..." required>
-            </div>
-
-            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-              <div>
-                <label for="schoolName">Asal Sekolah</label>
-                <input type="text" id="schoolName" class="form-input" placeholder="Nama SMA/SMK/MA..." required>
-              </div>
-              <div>
-                <label for="province">Provinsi</label>
-                <input type="text" id="province" class="form-input" placeholder="Contoh: Jawa Tengah" required>
-              </div>
-            </div>
-
-            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-              <div>
-                <label for="contactEmail">Email</label>
-                <input type="email" id="contactEmail" class="form-input" placeholder="email@sekolah.sch.id" required>
-              </div>
-              <div>
-                <label for="category">Kategori Pesan</label>
-                <select id="category" class="form-input" required>
-                  <option value="">Pilih Kategori...</option>
-                  <option value="aspirasi">Suara Aspirasi Siswa</option>
-                  <option value="konsultasi">Konsultasi AD/ART & Sidang</option>
-                  <option value="kerjasama">Kerjasama / Studi Banding</option>
-                  <option value="umum">Pertanyaan Umum</option>
-                </select>
-              </div>
+              <label for="fullName">Nama <span>(opsional)</span></label>
+              <input type="text" id="fullName" name="nama" class="form-input" placeholder="Boleh dikosongkan untuk mengirim anonim" maxlength="100" autocomplete="name">
             </div>
 
             <div class="form-group">
-              <label for="messageBody">Isi Pesan / Aspirasi</label>
-              <textarea id="messageBody" class="form-input" placeholder="Tuliskan gagasan, keluhan, atau pertanyaan Anda secara rinci..." required></textarea>
+              <label for="emailAddress">Email Aktif</label>
+              <input type="email" id="emailAddress" name="email" class="form-input" placeholder="nama@email.com" maxlength="254" autocomplete="email" required>
             </div>
 
-            <button type="submit" class="btn-primary-fomnas" style="width: 100%;">
+            <div class="form-group">
+              <label for="schoolName">Asal Sekolah / Daerah</label>
+              <input type="text" id="schoolName" name="sekolah" class="form-input" placeholder="Nama sekolah atau daerah..." maxlength="150" autocomplete="organization" required>
+            </div>
+
+            <div class="form-group">
+              <label for="category">Kategori Aspirasi</label>
+              <select id="category" name="kategori" class="form-input" required>
+                <option value="">Pilih kategori...</option>
+                <option value="Akademik">Akademik</option>
+                <option value="Sarana Prasarana">Sarana Prasarana</option>
+                <option value="Kesiswaan">Kesiswaan</option>
+                <option value="Kebijakan Sekolah">Kebijakan Sekolah</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="messageBody">Isi Pesan / Gagasan</label>
+              <textarea id="messageBody" name="pesan" class="form-input" placeholder="Tuliskan gagasan, kritik, atau usulanmu..." maxlength="5000" required></textarea>
+            </div>
+
+            <p class="aspiration-feedback" data-aspiration-feedback role="status" aria-live="polite"></p>
+            <button type="submit" class="btn-primary-fomnas" style="width: 100%;" data-aspiration-submit>
               <i class="fas fa-paper-plane"></i> Kirim Aspirasi Sekarang
             </button>
           </form>
@@ -216,7 +211,7 @@
             <li><a href="tentang.html">Tentang Kami</a></li>
             <li><a href="komisi.html">MPK / Komisi</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="proker.html">Program Kerja</a></li>
+            <li><a href="proker.html">Program</a></li>
             <li><a href="kontak.html">Kontak</a></li>
           </ul>
         </div>
@@ -268,5 +263,6 @@
 
   <button class="scroll-top-btn" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/aspirations.js"></script>
 </body>
 </html>

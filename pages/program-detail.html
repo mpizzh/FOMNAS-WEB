@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detail program Forum MPK Nasional.">
+  <title>Detail Program | Forum MPK Nasional</title>
+  <link rel="icon" type="image/png" href="/assets/images/fomnas_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="ambient-bg"></div>
+  <header class="header">
+    <div class="container">
+      <a href="/" class="brand-logo" aria-label="Beranda Forum MPK Nasional">
+        <img src="/assets/images/fomnas_logo.png" alt="Forum MPK Nasional" class="logo-img">
+        <span class="brand-text">Forum <strong>MPK Nasional</strong></span>
+      </a>
+      <a href="/pages/proker.html" class="detail-back-link">Semua Program</a>
+    </div>
+  </header>
+  <main class="news-detail-page">
+    <div class="container">
+      <p class="page-breadcrumbs"><a href="/">Beranda</a><span>/</span><a href="/pages/proker.html">Program</a><span>/</span><span>Detail</span></p>
+      <p id="program-detail-status" class="news-status" role="status" aria-live="polite">Memuat program...</p>
+      <article id="program-article" class="news-article" hidden>
+        <header class="news-article-header">
+          <span id="program-priority" class="program-priority-badge" hidden>Program Utama</span>
+          <h1 id="program-title"></h1>
+          <p id="program-meta" class="news-article-date"></p>
+        </header>
+        <img id="program-image" class="news-article-image" alt="">
+        <div id="program-description" class="news-article-content"></div>
+      </article>
+    </div>
+  </main>
+  <footer class="news-detail-footer">
+    <a href="/pages/proker.html">Kembali ke semua program</a>
+    <p>&copy; 2026 Forum MPK Nasional</p>
+  </footer>
+  <script src="/assets/js/program-detail.js" defer></script>
+</body>
+</html>
