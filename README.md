@@ -4,6 +4,6 @@ STATUS GITHUB :
 -V.0.1.2 - 
 Penambahan dashboard Admin serta penggunaan Database untuk mendukung fitur aspirasi serta Post News dan Program dari Dashboard Admin, Fitur News, Program, Dashboard Admin, Aspirasi SUDAH BERJALAN. Kurang Sinkronisasi Data Pada PAGE FOMNAS dengan AD/ART yang berlaku serta dibagian footer dan kontak
 
-**Noted jika ingin PUSH progres baru tambahkan versi pada commit dan jangan hapus folder progress/commit yang sebelumnya 
+**Noted jika ingin PULL kontak author
 
  Developed by Hafiz a.k.a @mpizzh
