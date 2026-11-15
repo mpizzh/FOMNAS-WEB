@@ -1,7 +1,9 @@
 STATUS GITHUB :
--V.0.1.1 / Paling awal - MURNI IMPLEMENTASI DARI UI, SEMUA FITUR BELUM JALAN.
+-V.0.1.1 / Paling awal - Murni Implementasi dari UI, SEMUA FITUR BELUM JALAN.
 
 -V.0.1.2 - 
-PENAMBAHAN DASHBOARD ADMIN SERTA PENGGUNAAN DATABASE UNTUK MENDUKUNG FITUR ASPIRASI SERTA POST NEWS DAN PROGRAM DARI DASHBOARD ADMIN, FITUR NEWS, PROGRAM, DASHBOARD ADMIN, ASPIRASI SUDAH BERJALAN. KURANG SINKRONISASI DATA PADA PAGE FOMNAS DENGAN AD/ART YANG BERLAKU SERTA DIBAGIAN FOOTER DAN KONTAK
+Penambahan dashboard Admin serta penggunaan Database untuk mendukung fitur aspirasi serta Post News dan Program dari Dashboard Admin, Fitur News, Program, Dashboard Admin, Aspirasi SUDAH BERJALAN. Kurang Sinkronisasi Data Pada PAGE FOMNAS dengan AD/ART yang berlaku serta dibagian footer dan kontak
+
+**Noted jika ingin PUSH progres baru tambahkan versi pada commit dan jangan hapus folder progress/commit yang sebelumnya 
 
  Developed by Hafiz a.k.a @mpizzh
